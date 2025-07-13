@@ -8,6 +8,7 @@ class Week1SpringBootIntroductionApplicationTests {
 
 	@Test
 	void contextLoads() {
+		System.out.println("Sahil is Running the test");
 	}
 
 }

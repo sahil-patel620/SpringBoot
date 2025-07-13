@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.sahilPatel.week1Introduction</groupId>
 	<artifactId>Week1SpringBootIntroduction</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<name>Week1SpringBootIntroduction</name>
 	<description>Demo project for Spring Boot Introduction </description>
 	<url/>
