@@ -10,7 +10,7 @@ public class CakeBaker {
 
     public CakeBaker(Frosting frosting, Syrup syrup) {
         this.frosting = frosting;
-        this.syrup = syrup;
+        this.syrup = syrup;;
     }
 
     public void bakeCake(){
