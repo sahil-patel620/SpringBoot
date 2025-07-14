@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 public class StrawberryFrosting implements  Frosting{
     public String getFrostingType(){
-//        System.out.println("Strawberry Frosting");
+        System.out.println("Strawberry Frosting");
         return "Strawberry Frosting";
     }
 }
