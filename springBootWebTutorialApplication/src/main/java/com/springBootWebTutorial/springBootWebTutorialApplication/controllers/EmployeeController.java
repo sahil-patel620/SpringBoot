@@ -41,7 +41,7 @@ public class EmployeeController {
     // Updating some fields of an existing resource.
     @PatchMapping
     public String patch(){
-        return "Hello from PATCH" ;
+        return "Hello from PATCH";
     }
 
     // Deleting a resource.
