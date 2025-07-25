@@ -31,7 +31,7 @@ public class EmployeeController {
     @GetMapping
         public List<EmployeeEntity> getAllEmployees(@RequestParam(required = false, name = "inputAge") Integer age,
                                                     @RequestParam(required = false) String sortBy){
-        return  employeeRepository.findAll();
+        return employeeRepository.findAll();
     }
 
     // for creating new resources
