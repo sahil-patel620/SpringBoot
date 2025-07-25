@@ -36,7 +36,7 @@ public class EmployeeService {
 
     public EmployeeDTO createNewEmployee(EmployeeEntity inputEmployee){
 //      to check if user is admin
-//      log  something
+//      log   something
        EmployeeEntity toSaveEntity = modelMapper.map(inputEmployee,EmployeeEntity.class);
        EmployeeEntity savedEmployeeEntity =  employeeRepository.save(toSaveEntity);
        return modelMapper.map(savedEmployeeEntity,EmployeeDTO.class);
