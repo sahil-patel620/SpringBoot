@@ -55,7 +55,7 @@ public class EmployeeService {
     public boolean deleteById(Long employeeId) {
         boolean exists = employeeRepository.existsById(employeeId);
         if (exists){
-            employeeRepository.deleteById(employeeId) ;
+            employeeRepository.deleteById(employeeId);
             return  true;
         }else {
             return false;
