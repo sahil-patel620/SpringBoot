@@ -5,8 +5,11 @@ import com.springBootWebTutorial.springBootWebTutorialApplication.entities.Emplo
 import com.springBootWebTutorial.springBootWebTutorialApplication.repositories.EmployeeRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ReflectionUtils;
 
+import java.lang.reflect.Field;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -51,14 +54,30 @@ public class EmployeeService {
         return modelMapper.map(savedEmployeeEntity, EmployeeDTO.class);
     }
 
+    public boolean isExistsInRepository(Long employeeId){
+        return employeeRepository.existsById(employeeId);
+    }
+
 //  this function will delete the data using employeeId (if exists)
     public boolean deleteById(Long employeeId) {
-        boolean exists = employeeRepository.existsById(employeeId);
+        boolean exists = isExistsInRepository(employeeId);
         if (exists){
             employeeRepository.deleteById(employeeId);
             return  true;
         }else {
             return false;
         }
+    }
+
+    public EmployeeDTO updatePartiallyById(Long employeeId, Map<String, Object> updates) {
+        boolean exists = isExistsInRepository(employeeId);
+        if (!exists) return null;
+        EmployeeEntity  employeeEntity = employeeRepository.findById(employeeId).get();
+        updates.forEach((field, value) ->{
+            Field fieldToBeUpdated = ReflectionUtils.findField(EmployeeEntity.class, field);
+            fieldToBeUpdated.setAccessible(true);
+            ReflectionUtils.setField(fieldToBeUpdated,employeeEntity,value);
+        });
+        return modelMapper.map(employeeRepository.save(employeeEntity),EmployeeDTO.class);
     }
 }

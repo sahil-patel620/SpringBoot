@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping(path = "/employees") // parent path
@@ -50,5 +51,10 @@ public class EmployeeController {
     @DeleteMapping(path = "/{employeeId}")
     public boolean deleteById(@PathVariable Long employeeId){
        return employeeService.deleteById(employeeId);
+    }
+
+    @PatchMapping(path = "/{employeeId}")
+    public EmployeeDTO updatePartiallyById(@RequestBody Map<String, Object> updates, @PathVariable  Long employeeId){
+        return employeeService.updatePartiallyById(employeeId, updates);
     }
 }
