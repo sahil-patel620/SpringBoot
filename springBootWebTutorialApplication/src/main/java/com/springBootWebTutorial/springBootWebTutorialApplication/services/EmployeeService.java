@@ -42,4 +42,12 @@ public class EmployeeService {
        return modelMapper.map(savedEmployeeEntity,EmployeeDTO.class);
 
     }
+
+//  this function will update existing resource if not available then add new one with the data
+    public EmployeeDTO updateEmployeeById(EmployeeDTO employeeDTO, Long employeeId) {
+        EmployeeEntity employeeEntity = modelMapper.map(employeeDTO, EmployeeEntity.class);
+        employeeEntity.setId(employeeId);
+        EmployeeEntity savedEmployeeEntity = employeeRepository.save(employeeEntity);
+        return modelMapper.map(savedEmployeeEntity, EmployeeDTO.class);
+    }
 }
