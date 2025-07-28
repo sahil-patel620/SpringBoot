@@ -50,4 +50,15 @@ public class EmployeeService {
         EmployeeEntity savedEmployeeEntity = employeeRepository.save(employeeEntity);
         return modelMapper.map(savedEmployeeEntity, EmployeeDTO.class);
     }
+
+//  this function will delete the data using employeeId (if exists)
+    public boolean deleteById(Long employeeId) {
+        boolean exists = employeeRepository.existsById(employeeId);
+        if (exists){
+            employeeRepository.deleteById(employeeId);
+            return  true;
+        }else {
+            return false;
+        }
+    }
 }
