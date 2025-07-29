@@ -1,8 +1,9 @@
 package com.springBootWebTutorial.springBootWebTutorialApplication.controllers;
 
 import com.springBootWebTutorial.springBootWebTutorialApplication.dto.EmployeeDTO;
-import com.springBootWebTutorial.springBootWebTutorialApplication.entities.EmployeeEntity;
+//import com.springBootWebTutorial.springBootWebTutorialApplication.entities.EmployeeEntity;
 import com.springBootWebTutorial.springBootWebTutorialApplication.services.EmployeeService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.ReflectionUtils;
@@ -45,7 +46,7 @@ public class EmployeeController {
 
     // for creating new resources
     @PostMapping
-    public ResponseEntity<EmployeeDTO> createNewEmployee(@RequestBody EmployeeEntity inputEmployee){
+    public ResponseEntity<EmployeeDTO> createNewEmployee(@RequestBody @Valid EmployeeDTO inputEmployee){
         EmployeeDTO savedEmployee = employeeService.createNewEmployee(inputEmployee);
         return new ResponseEntity<>(savedEmployee, HttpStatus.CREATED);
     }

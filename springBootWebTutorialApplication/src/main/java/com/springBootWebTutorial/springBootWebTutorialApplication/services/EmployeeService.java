@@ -39,7 +39,7 @@ public class EmployeeService {
                 .collect(Collectors.toList());
     }
 
-    public EmployeeDTO createNewEmployee(EmployeeEntity inputEmployee){
+    public EmployeeDTO createNewEmployee(EmployeeDTO inputEmployee){
 //      to check if user is admin
 //      log something
        EmployeeEntity toSaveEntity = modelMapper.map(inputEmployee,EmployeeEntity.class);
