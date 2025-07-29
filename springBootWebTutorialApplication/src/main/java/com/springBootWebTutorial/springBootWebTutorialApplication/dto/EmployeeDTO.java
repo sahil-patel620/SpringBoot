@@ -38,8 +38,12 @@ public class EmployeeDTO {
 
     @NotNull(message = "Salary of Employee should be not Null")
     @Positive(message = "Salary of Employee should be positive")
-    private Integer salary;
+    @Digits(integer = 7, fraction = 2, message = "The salary can be in form of XXXXXXX.YY")
+    @DecimalMax(value = "1000000.99")
+    @DecimalMin(value = "10000.50")
+    private Double salary;
 
+    @AssertTrue(message = "Employee should be active")
     @JsonProperty("isActive")
     private Boolean isActive;
 
