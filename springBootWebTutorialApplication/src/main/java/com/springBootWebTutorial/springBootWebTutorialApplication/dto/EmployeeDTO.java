@@ -36,7 +36,7 @@ public class EmployeeDTO {
     @Pattern(regexp = "^(?i)(ADMIN|USER)$", message = "Role must be either ADMIN or USER")
     private String role;
 
-    @NotNull(message = "Salary of Employee should be not Null")
+    @NotNull(message = "Salary of Employee should be not Null ")
     @Positive(message = "Salary of Employee should be positive")
     private Integer salary;
 
