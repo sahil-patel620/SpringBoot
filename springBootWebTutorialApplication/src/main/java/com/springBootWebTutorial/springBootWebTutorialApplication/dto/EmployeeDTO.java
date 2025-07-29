@@ -2,6 +2,8 @@ package com.springBootWebTutorial.springBootWebTutorialApplication.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.springBootWebTutorial.springBootWebTutorialApplication.annotations.EmployeeRoleValidation;
+import com.springBootWebTutorial.springBootWebTutorialApplication.annotations.EvenNumberValidation;
+import com.springBootWebTutorial.springBootWebTutorialApplication.annotations.PrimeNumberValidation;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -48,5 +50,10 @@ public class EmployeeDTO {
     @AssertTrue(message = "Employee should be active")
     @JsonProperty("isActive")
     private Boolean isActive;
+
+    @PrimeNumberValidation(message = "Number must be a prime number")
+//    @EvenNumberValidation(message = "Number must be a even number")
+    private  Integer primeNumber;
+
 
 }
