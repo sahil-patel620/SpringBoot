@@ -37,7 +37,7 @@ public class EmployeeDTO {
     private String role;
 
     @NotNull(message = "Salary of Employee should be not Null")
-    @Positive(message = "Salary of Employee should be positive ")
+    @Positive(message = "Salary of Employee should be positive")
     private Integer salary;
 
     @JsonProperty("isActive")
