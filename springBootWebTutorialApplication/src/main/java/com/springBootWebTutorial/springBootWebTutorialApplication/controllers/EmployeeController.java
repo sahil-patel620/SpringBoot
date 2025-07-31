@@ -48,7 +48,7 @@ public class EmployeeController {
     @PostMapping
     public ResponseEntity<EmployeeDTO> createNewEmployee(@RequestBody @Valid EmployeeDTO inputEmployee){
         EmployeeDTO savedEmployee = employeeService.createNewEmployee(inputEmployee);
-        return new ResponseEntity<>(savedEmployee, HttpStatus.CREATED);
+        return new ResponseEntity<>(savedEmployee, HttpStatus.CREATED );
     }
 
 //    to update existing resource
