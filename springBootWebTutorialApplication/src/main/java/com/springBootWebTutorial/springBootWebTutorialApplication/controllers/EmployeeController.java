@@ -47,7 +47,7 @@ public class EmployeeController {
     // for creating new resources
     @PostMapping
     public ResponseEntity<EmployeeDTO> createNewEmployee(@RequestBody @Valid EmployeeDTO inputEmployee){
-        EmployeeDTO savedEmployee = employeeService.createNewEmployee(inputEmployee);
+        EmployeeDTO savedEmployee = employeeService.createNewEmployee(inputEmployee );
         return new ResponseEntity<>(savedEmployee, HttpStatus.CREATED);
     }
 
