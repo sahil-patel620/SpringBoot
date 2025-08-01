@@ -2,6 +2,7 @@ package com.springBootWebTutorial.springBootWebTutorialApplication.controllers;
 
 import com.springBootWebTutorial.springBootWebTutorialApplication.dto.EmployeeDTO;
 //import com.springBootWebTutorial.springBootWebTutorialApplication.entities.EmployeeEntity;
+import com.springBootWebTutorial.springBootWebTutorialApplication.exception.ResourceNotFoundException;
 import com.springBootWebTutorial.springBootWebTutorialApplication.services.EmployeeService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -31,12 +32,14 @@ public class EmployeeController {
 
 
     @GetMapping(path = "/{employeeId}")
-    public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable(name = "employeeId") Long id) {
+    public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable(name = "employeeId") Long id) throws NoSuchFieldException {
         Optional<EmployeeDTO> employeeDTO = employeeService.getEmployeeById(id);
         return employeeDTO
                 .map(employeeDTO1 -> ResponseEntity.ok(employeeDTO1))
-                .orElse(ResponseEntity.notFound().build());
+                .orElseThrow(()-> new ResourceNotFoundException("Employee not found with id: "+ id));
     }
+
+
 
     @GetMapping
         public ResponseEntity<List<EmployeeDTO>> getAllEmployees(@RequestParam(required = false, name = "inputAge") Integer age,
