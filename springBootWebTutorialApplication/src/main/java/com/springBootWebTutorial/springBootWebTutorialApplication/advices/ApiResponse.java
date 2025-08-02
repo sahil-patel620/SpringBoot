@@ -24,6 +24,6 @@ public class ApiResponse<T> {
 
     public ApiResponse(ApiError error) {
         this();
-        this.error = error;
+        this.error = error ;
     }
 }
