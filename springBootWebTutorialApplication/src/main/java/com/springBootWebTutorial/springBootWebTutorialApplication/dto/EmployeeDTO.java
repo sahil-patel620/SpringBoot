@@ -18,11 +18,11 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EmployeeDTO {
-    private  Long id;
+    private Long id;
 
     @NotBlank(message = "Name of Employee cannot be empty")
     @Size(min = 2, max = 10, message = "Number of character in name should be in range: [2, 10]")
-    private  String name;
+    private String name;
 
     @NotBlank(message = "Email of Employee cannot be empty")
     @Email(message = "Email should be a valid email")
@@ -36,7 +36,7 @@ public class EmployeeDTO {
     private LocalDate dateOfJoining;
 
     @NotBlank(message = "Role of Employee cannot be empty")
-//    @Pattern(regexp = "^(?i)(ADMIN|USER)$", message = "Role must be either ADMIN or USER")
+    // @Pattern(regexp = "^(?i)(ADMIN|USER)$", message = "Role must be either ADMIN or USER")
     @EmployeeRoleValidation
     private String role;
 
@@ -52,8 +52,7 @@ public class EmployeeDTO {
     private Boolean isActive;
 
     @PrimeNumberValidation(message = "Number must be a prime number")
-//    @EvenNumberValidation(message = "Number must be a even number")
-    private  Integer primeNumber;
-
+    // @EvenNumberValidation(message = "Number must be a even number")
+    private Integer primeNumber;
 
 }
