@@ -30,7 +30,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 50 )
+    @Column(nullable = false, length = 50)
     private String sku;
 
     @Column(name = "title_x")
