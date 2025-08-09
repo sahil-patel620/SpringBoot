@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @Builder
 @Table(name = "product_table",
         uniqueConstraints = {
-                @UniqueConstraint(name = "title_price_unique", columnNames = {"title_x", "price"})
+                @UniqueConstraint(name = "title_price_unique", columnNames = {"title_x", "price" })
         },
         indexes = {
                 @Index(name = "sku_index", columnList = "sku")
