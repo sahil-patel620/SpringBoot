@@ -1,6 +1,26 @@
-insert into test.product_table (price,quantity,sku,title_x)
-values
-(12.4, 4,"parle734","Parle Biscuit"),
-(14.4, 1, "pepsi123", "Pepsi" ),
-(34.4, 1, "cola124", "Coca Cola" ),
-(16.4, 3, "pepsi156", "Mazza");
+INSERT INTO test.product_table (price, quantity, sku, title_x)
+VALUES
+(12.4, 4, "parle734", "Parle Biscuit"),
+(14.4, 1, "pepsi123", "Pepsi"),
+(34.4, 1, "cola124", "Coca Cola"),
+(10.0, 3, "pepsi156", "Mazza"),
+(22.5, 2, "lays001", "Lays Classic"),
+(18.9, 5, "kitk002", "KitKat Chocolate"),
+(45.0, 1, "dair003", "Dairy Milk Silk"),
+(10.0, 10, "maggi04", "Maggi Noodles"),
+(55.5, 1, "bru005", "Bru Coffee"),
+(30.0, 3, "nesc006", "Nescafe Gold"),
+(30.0, 2, "bour007", "Bourbon Biscuit"),
+(15.0, 6, "good008", "Good Day Biscuit"),
+(60.0, 1, "bourn09", "Bournvita"),
+(40.0, 2, "trop010", "Tropicana Juice"),
+(25.5, 4, "froot11", "Frooti Mango Drink"),
+(19.0, 2, "hide012", "Hide & Seek Biscuit"),
+(75.0, 1, "amul013", "Amul Butter"),
+(85.0, 1, "amul014", "Amul Cheese"),
+(28.0, 3, "perk015", "Perk Chocolate"),
+(33.5, 2, "oreo016", "Oreo Biscuit"),
+(12.0, 8, "marie17", "Marie Gold Biscuit"),
+(50.0, 1, "redl018", "Red Label Tea"),
+(90.0, 1, "tata019", "Tata Salt"),
+(42.0, 2, "sunf020", "Sunfeast Biscuit");
