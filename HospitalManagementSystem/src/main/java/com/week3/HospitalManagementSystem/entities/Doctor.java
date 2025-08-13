@@ -1,13 +1,12 @@
 package com.week3.HospitalManagementSystem.entities;
 
-import com.week3.HospitalManagementSystem.entities.type.BloodGroupType;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,31 +14,27 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@ToString
-public class Patient {
+@AllArgsConstructor
+@NoArgsConstructor
+public class Doctor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, length = 100)
     private  String name;
 
-    private LocalDate  birthDate;
+    @Column(length = 100)
+    private  String specification;
 
+    @Column(nullable = false, unique = true, length = 100)
     private  String email;
-
-    private String gender;
-
-    @Enumerated(value = EnumType.STRING)
-    private BloodGroupType bloodGroup;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
 
-    @OneToOne
-    @JoinColumn(name = "patient_insurance" , unique = true)
-    private Insurannce insurance; // Owning Side
-
-    @OneToMany(mappedBy = "patient")     // Inverse side
+    @OneToMany(mappedBy = "doctor")
     private Set<Appointment> appointments = new HashSet<>();
+
 }
