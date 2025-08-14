@@ -38,7 +38,7 @@ public class Patient {
 
     @OneToOne
     @JoinColumn(name = "patient_insurance" , unique = true)
-    private Insurannce insurance; // Owning Side
+    private Insurance insurance; // Owning Side
 
     @OneToMany(mappedBy = "patient")     // Inverse side
     private Set<Appointment> appointments = new HashSet<>();

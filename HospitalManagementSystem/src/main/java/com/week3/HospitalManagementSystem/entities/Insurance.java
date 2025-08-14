@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Insurannce {
+public class Insurance {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
