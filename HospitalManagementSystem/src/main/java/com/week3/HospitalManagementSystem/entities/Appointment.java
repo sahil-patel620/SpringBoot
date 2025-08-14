@@ -26,13 +26,13 @@ public class Appointment {
     @Column(length = 500)
     private  String reason;
 
-    @ManyToOne  // When you load the parent entity, Hibernate will immediately load the related entity at the same time. to stop this use (fetch = Fetch.Type = EAGER)
+    @ManyToOne  // When you load the parent entity, Hibernate will immediately load the related entity at the same time. to stop this use (fetch = Fetch.Type = LAZY)
     @JoinColumn(nullable = false)
     @ToString.Exclude
     @JsonIgnore   //Prevent a field or method from being included in the JSON output. Prevent Jackson from looking for the field when parsing JSON input (unless you allow it via other configs).
     private Patient patient; // Owning Side
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(nullable = false)
     @ToString.Exclude
     @JsonIgnore

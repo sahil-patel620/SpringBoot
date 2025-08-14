@@ -38,10 +38,16 @@ public class PatientServiceTest {
 //        int rowsAffected = patientRepository.updatePatientNameWithId("Sahil Patel", 1L);
 //        System.out.println(rowsAffected);
 //
-////        understanding PersistenceContext and EntityManager
+//        understanding PersistenceContext and EntityManager
 //        Patient patient = new Patient();
 //        patientRepository.save(patient); // save is ultimately calling persist from entityManager
 
-        patientService.testPatientTransaction();
+//        patientService.testPatientTransaction();
+
+        List<Patient> patientList = patientRepository.getAllPatientsWithAppointment();
+        for (var p : patientList){
+            System.out.println(p);
+        }
+
     }
 }
