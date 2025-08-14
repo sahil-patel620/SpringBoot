@@ -25,4 +25,10 @@ public class PatientService {
         p1.setName("Random Name");
 
     }
+
+    @Transactional
+    public void deletePatientById(Long patientId){
+        patientRepository.findById(patientId).orElseThrow();
+        patientRepository.deleteById(patientId);
+    }
 }

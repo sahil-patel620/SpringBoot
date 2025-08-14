@@ -15,7 +15,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@ToString
+//@ToString
 public class Patient {
 
     @Id
@@ -36,10 +36,10 @@ public class Patient {
     @CreationTimestamp
     private LocalDateTime createdAt;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "patient_insurance" , unique = true)
     private Insurance insurance; // Owning Side
 
-    @OneToMany(mappedBy = "patient")     // Inverse side
-    private Set<Appointment> appointments = new HashSet<>();
+    @OneToMany(mappedBy = "patient" , cascade = CascadeType.ALL)    // by defining cascade = CascadeType.ALL whenever Patient is deleted it will also delete the all the appointments related to that patient.
+    private Set<Appointment> appointments = new HashSet<>();   // Inverse side
 }

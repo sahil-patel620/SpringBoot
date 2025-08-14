@@ -16,10 +16,15 @@ public class InsuranceService {
     private final InsuranceRepository insuranceRepository;
 
     @Transactional
-    public void assignInsuranceToPatient(Insurance insurance, Long patientId){
+    public Insurance assignInsuranceToPatient(Insurance insurance, Long patientId){
         Patient patient =  patientRepository.findById(patientId).orElseThrow();
 
-        patient.setInsurance(insurance);
+//      dirty patient
+        patient.setInsurance(insurance); // patient knows about insurance, but insurance doesn't yet know about patient
 
+        insurance.setPatient(patient); // optional, now insurance also knows about patient
+        return insurance;
     }
+
+
 }
