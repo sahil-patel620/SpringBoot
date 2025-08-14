@@ -47,7 +47,7 @@ public class InsuranceTest {
                 .build();
 
         var updatedAppointment = appointmentService.createANewAppointment(appointment,1L, 2L);
-        System.out.println(updatedAppointment );
+        System.out.println(updatedAppointment);
 
         patientService.deletePatientById(1L);
 
