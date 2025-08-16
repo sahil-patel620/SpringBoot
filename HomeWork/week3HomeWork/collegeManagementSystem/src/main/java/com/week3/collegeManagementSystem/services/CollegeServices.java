@@ -26,7 +26,7 @@ public class CollegeServices {
 
     private final ModelMapper modelMapper;
 
-    public Optional<StudentResponseDTO> getStudentById(Long id){
+    public Optional<StudentResponseDTO> getStudentById(Long id ){
 //        Student student = studentRepository.findById(id).orElseThrow();
 //        return modelMapper.map(student, StudentResponseDTO.class);
 
