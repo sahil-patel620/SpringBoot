@@ -12,5 +12,5 @@ import lombok.Setter;
 public class AdmissionRecordRequestDTO {
 
     private Integer fees;
-    private Long  studentId;
+    private Long studentId;
 }
