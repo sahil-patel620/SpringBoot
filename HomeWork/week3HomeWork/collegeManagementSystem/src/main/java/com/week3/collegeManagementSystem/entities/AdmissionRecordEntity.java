@@ -11,7 +11,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class AdmissionRecord {
+@Table(name = "admissions")
+public class AdmissionRecordEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,8 +22,7 @@ public class AdmissionRecord {
 
     // ── Student ↔ AdmissionRecord = 1:1
     // OWNING SIDE. FK student_id lives here.
-    @OneToOne
-    @JoinColumn(name = "student_id", unique = true)
-    private Student student;
+    @OneToOne(fetch = FetchType.LAZY)
+    private StudentEntity student;
 
 }

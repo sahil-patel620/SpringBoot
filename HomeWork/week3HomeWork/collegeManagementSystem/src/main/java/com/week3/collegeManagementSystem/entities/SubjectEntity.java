@@ -8,13 +8,15 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Subject {
+@Table(name = "subjects")
+public class SubjectEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,14 +25,19 @@ public class Subject {
 
     // ── Professor ↔ Subject = 1:N
     // OWNING SIDE. This side holds the FK column professor_id.
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "professor_id")
-    private Professor professor;
+    private ProfessorEntity professor;
 
 
     // ── Student ↔ Subject = M:N
     // INVERSE SIDE. The owning side is Student.subjects
-    @ManyToMany(mappedBy = "subjects")
-    private List<Student> students = new ArrayList<>();
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
+    @JoinTable(
+            name = "subject_student",
+            joinColumns = @JoinColumn(name = "subject_id"),
+            inverseJoinColumns = @JoinColumn(name = "student_id")
+    )
+    private Set<SubjectEntity> students;
 
 }

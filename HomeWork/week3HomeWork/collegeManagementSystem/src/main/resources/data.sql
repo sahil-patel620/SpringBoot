@@ -1,80 +1,80 @@
--- ========================
--- PROFESSORS
--- ========================
-INSERT INTO professor (title) VALUES
-('Dr. Rakesh Mehta'),
-('Dr. Anjali Sharma'),
-('Dr. Vivek Nair'),
-('Dr. Kavita Joshi'),
-('Dr. Arun Menon');
-
--- ========================
--- STUDENTS
--- ========================
-INSERT INTO student (name) VALUES
-('Aman Gupta'),
-('Priya Singh'),
-('Rahul Verma'),
-('Neha Patel'),
-('Sahil Khan'),
-('Divya Reddy'),
-('Karan Yadav'),
-('Simran Kaur'),
-('Rohit Das'),
-('Meena Iyer');
-
--- ========================
--- SUBJECTS
--- (Need professor_id for FK → assume inserted in order 1..5)
--- ========================
-INSERT INTO subject (title, professor_id) VALUES
-('Mathematics', 1),
-('Physics', 1),
-('Chemistry', 2),
-('Biology', 2),
-('Computer Science', 3),
-('English Literature', 4),
-('Economics', 5),
-('History', 4);
-
--- ========================
--- ADMISSION RECORDS
--- (student_id = 1..10 same order as inserted)
--- ========================
-INSERT INTO admission_record (fees, student_id) VALUES
-(50000, 1),
-(60000, 2),
-(55000, 3),
-(52000, 4),
-(58000, 5),
-(61000, 6),
-(53000, 7),
-(57000, 8),
-(54000, 9),
-(59000, 10);
-
--- ========================
--- PROFESSOR ↔ STUDENT (M:N)
--- ========================
-INSERT INTO professor_students (professors_id, students_id) VALUES
-(1, 1), (1, 2), (1, 3), (1, 5),
-(2, 2), (2, 4), (2, 6), (2, 7),
-(3, 1), (3, 8), (3, 9),
-(4, 10), (4, 8), (4, 4),
-(5, 9), (5, 7), (5, 5);
-
-
--- ========================
--- STUDENT ↔ SUBJECT (M:N)
--- ========================
-INSERT INTO student_subjects (student_id, subject_id) VALUES
-(1, 1), (1, 2), (1, 5),
-(2, 2), (2, 3), (2, 6),
-(3, 1), (3, 3), (3, 7),
-(4, 4), (4, 6),
-(5, 5), (5, 7),
-(6, 3), (6, 8),
-(7, 5), (7, 7),
-(8, 6), (8, 8),
-(9, 2), (9, 7),
-(10, 4), (10, 8);
+---- ========================
+---- PROFESSORS
+---- ========================
+--INSERT INTO professor (title) VALUES
+--('Dr. Rakesh Mehta'),
+--('Dr. Anjali Sharma'),
+--('Dr. Vivek Nair'),
+--('Dr. Kavita Joshi'),
+--('Dr. Arun Menon');
+--
+---- ========================
+---- STUDENTS
+---- ========================
+--INSERT INTO student (name) VALUES
+--('Aman Gupta'),
+--('Priya Singh'),
+--('Rahul Verma'),
+--('Neha Patel'),
+--('Sahil Khan'),
+--('Divya Reddy'),
+--('Karan Yadav'),
+--('Simran Kaur'),
+--('Rohit Das'),
+--('Meena Iyer');
+--
+---- ========================
+---- SUBJECTS
+---- (Need professor_id for FK → assume inserted in order 1..5)
+---- ========================
+--INSERT INTO subject (title, professor_id) VALUES
+--('Mathematics', 1),
+--('Physics', 1),
+--('Chemistry', 2),
+--('Biology', 2),
+--('Computer Science', 3),
+--('English Literature', 4),
+--('Economics', 5),
+--('History', 4);
+--
+---- ========================
+---- ADMISSION RECORDS
+---- (student_id = 1..10 same order as inserted)
+---- ========================
+--INSERT INTO admission_record (fees, student_id) VALUES
+--(50000, 1),
+--(60000, 2),
+--(55000, 3),
+--(52000, 4),
+--(58000, 5),
+--(61000, 6),
+--(53000, 7),
+--(57000, 8),
+--(54000, 9),
+--(59000, 10);
+--
+---- ========================
+---- PROFESSOR ↔ STUDENT (M:N)
+---- ========================
+--INSERT INTO professor_students (professors_id, students_id) VALUES
+--(1, 1), (1, 2), (1, 3), (1, 5),
+--(2, 2), (2, 4), (2, 6), (2, 7),
+--(3, 1), (3, 8), (3, 9),
+--(4, 10), (4, 8), (4, 4),
+--(5, 9), (5, 7), (5, 5);
+--
+--
+---- ========================
+---- STUDENT ↔ SUBJECT (M:N)
+---- ========================
+--INSERT INTO student_subjects (student_id, subject_id) VALUES
+--(1, 1), (1, 2), (1, 5),
+--(2, 2), (2, 3), (2, 6),
+--(3, 1), (3, 3), (3, 7),
+--(4, 4), (4, 6),
+--(5, 5), (5, 7),
+--(6, 3), (6, 8),
+--(7, 5), (7, 7),
+--(8, 6), (8, 8),
+--(9, 2), (9, 7),
+--(10, 4), (10, 8);

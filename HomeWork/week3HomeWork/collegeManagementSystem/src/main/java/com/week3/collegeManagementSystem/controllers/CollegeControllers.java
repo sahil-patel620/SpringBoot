@@ -1,7 +1,7 @@
 package com.week3.collegeManagementSystem.controllers;
 
-import com.week3.collegeManagementSystem.dto.StudentRequestDTO;
-import com.week3.collegeManagementSystem.dto.StudentResponseDTO;
+import com.week3.collegeManagementSystem.dtos.StudentRequestDTO;
+import com.week3.collegeManagementSystem.dtos.StudentResponseDTO;
 import com.week3.collegeManagementSystem.services.CollegeServices;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
