@@ -38,6 +38,6 @@ public class SubjectEntity {
             joinColumns = @JoinColumn(name = "subject_id"),
             inverseJoinColumns = @JoinColumn(name = "student_id")
     )
-    private Set<SubjectEntity> students;
+    private Set<StudentEntity> students;
 
 }
