@@ -27,7 +27,7 @@ public class AuditController {
         List<Number> revisions = reader.getRevisions(PostEntity.class, postId);
         return revisions
                 .stream()
-                .map(revisionNumber -> reader .find(PostEntity.class, postId, revisionNumber))
+                .map(revisionNumber -> reader.find(PostEntity.class, postId, revisionNumber))
                 .collect(Collectors.toList());
     }
 }
