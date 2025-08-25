@@ -56,7 +56,7 @@ public class EmployeeClientImpl implements EmployeeClient {
                     .body(employeeDTO)
                     .retrieve()
                     .onStatus(HttpStatusCode::is4xxClientError, (req,res) -> {
-                        System.out.println("Error occured" + new String(res.getBody().readAllBytes()));
+                        System.out.println("Error occurred" + new String(res.getBody().readAllBytes()));
                         throw new ResourceNotFoundException("Could not create the employee");
                     })
                     .toEntity(new ParameterizedTypeReference<>() {
