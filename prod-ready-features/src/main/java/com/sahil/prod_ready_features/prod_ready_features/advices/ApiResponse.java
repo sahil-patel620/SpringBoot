@@ -1,4 +1,5 @@
-package com.springBootWebTutorial.springBootWebTutorialApplication.advices;
+package com.sahil.prod_ready_features.prod_ready_features.advices;
+
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
@@ -8,7 +9,7 @@ import java.time.LocalDateTime;
 @Data
 public class ApiResponse<T> {
 
-    // @JsonFormat(pattern = "hh:mm:ss dd-MM-YYYY")
+//    @JsonFormat(pattern = "hh:mm:ss dd-MM-YYYY")
     private LocalDateTime timeStamp;
     private T data;
     private ApiError error;
@@ -27,3 +28,4 @@ public class ApiResponse<T> {
         this.error = error;
     }
 }
+

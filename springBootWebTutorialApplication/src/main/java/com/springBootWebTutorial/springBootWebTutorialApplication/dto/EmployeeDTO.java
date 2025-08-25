@@ -2,7 +2,7 @@ package com.springBootWebTutorial.springBootWebTutorialApplication.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.springBootWebTutorial.springBootWebTutorialApplication.annotations.EmployeeRoleValidation;
-import com.springBootWebTutorial.springBootWebTutorialApplication.annotations.EvenNumberValidation;
+// import com.springBootWebTutorial.springBootWebTutorialApplication.annotations.EvenNumberValidation;
 import com.springBootWebTutorial.springBootWebTutorialApplication.annotations.PrimeNumberValidation;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
