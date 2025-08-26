@@ -12,6 +12,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @Configuration
 public class RestClientConfig {
+
     @Value("${employeeService.base.url}")
     private String BASE_URL;
 
