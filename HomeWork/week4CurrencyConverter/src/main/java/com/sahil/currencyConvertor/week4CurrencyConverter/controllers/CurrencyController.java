@@ -16,7 +16,7 @@ public class CurrencyController {
     private final CurrencyClient currencyClient;
 
 
-    @GetMapping(path = "/convertCurrency")
+    @GetMapping(path = "/convertCurrency" )
     public CurrencyConvertResponseDto convertCurrency(@RequestParam String fromCurrency,
                                                       @RequestParam String toCurrency,
                                                        @RequestParam double units){
