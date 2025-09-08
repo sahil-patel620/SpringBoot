@@ -3,6 +3,8 @@ package com.sahil.SecurityApp.SecurityApplication.controllers;
 import com.sahil.SecurityApp.SecurityApplication.dto.PostDto;
 import com.sahil.SecurityApp.SecurityApplication.service.PostService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,4 +35,5 @@ public class PostController {
     public PostDto updatePost(@RequestBody PostDto inputPost, @PathVariable Long postId){
         return postService.updatePost(inputPost, postId);
     }
+
 }
