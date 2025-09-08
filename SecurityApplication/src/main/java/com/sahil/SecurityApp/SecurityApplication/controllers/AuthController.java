@@ -34,7 +34,7 @@ public class AuthController {
 
         Cookie cookie = new Cookie("token", token);
         cookie.setHttpOnly(true);
-//        cookie.setSecure(true);   // used only for HTTPS
+//        cookie.setSecure(true);   // used only for HTTPs
         response.addCookie(cookie);
 
         return ResponseEntity.ok(token);
