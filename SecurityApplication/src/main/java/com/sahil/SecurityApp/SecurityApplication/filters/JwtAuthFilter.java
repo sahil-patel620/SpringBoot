@@ -51,7 +51,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                     new WebAuthenticationDetailsSource().buildDetails(request));    // this will provide some details like client Ip address , session ID associated with the request
             // To put this user to Spring security context holder
             SecurityContextHolder.getContext().setAuthentication(authenticationToken);
-
         }
 
         filterChain.doFilter(request, response);
