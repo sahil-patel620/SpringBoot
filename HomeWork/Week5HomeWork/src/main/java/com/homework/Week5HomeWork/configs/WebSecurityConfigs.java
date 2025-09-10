@@ -9,5 +9,4 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 @RequiredArgsConstructor
 public class WebSecurityConfigs {
 
-
 }
