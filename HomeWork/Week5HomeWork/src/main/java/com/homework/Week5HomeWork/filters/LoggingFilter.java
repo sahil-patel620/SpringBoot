@@ -28,6 +28,5 @@ public class LoggingFilter extends OncePerRequestFilter {
     long duration = System.currentTimeMillis() - startTime;
     int status = response.getStatus();
     log.info("Outgoing Response: [{}] {}  Status = {} (took {} ms)" ,method, uri, status, duration);
-
     }
 }
