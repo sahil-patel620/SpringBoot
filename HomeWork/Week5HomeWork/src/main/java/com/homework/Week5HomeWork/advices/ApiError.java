@@ -1,7 +1,6 @@
 package com.homework.Week5HomeWork.advices;
 
 import lombok.Data;
-import org.springframework.boot.autoconfigure.graphql.GraphQlProperties;
 import org.springframework.http.HttpStatus;
 
 import java.time.LocalDate;

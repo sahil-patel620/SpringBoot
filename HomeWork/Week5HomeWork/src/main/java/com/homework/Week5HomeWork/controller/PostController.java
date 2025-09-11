@@ -1,9 +1,6 @@
 package com.homework.Week5HomeWork.controller;
 
 import com.homework.Week5HomeWork.dto.PostDto;
-import com.homework.Week5HomeWork.entities.PostEntity;
-import com.homework.Week5HomeWork.exceptions.ResourceNotFoundException;
-import com.homework.Week5HomeWork.repositories.PostRepository;
 import com.homework.Week5HomeWork.services.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

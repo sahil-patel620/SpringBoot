@@ -46,7 +46,8 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         // SecurityContextHolder.getContext().getAuthentication() == null checks 'is this request unauthenticated'
         if (userId != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             User user = userService.getUserById(userId);
-            UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user, null, null);
+            UsernamePasswordAuthenticationToken authenticationToken =
+                    new UsernamePasswordAuthenticationToken(user, null, null);
             authenticationToken.setDetails(
                     new WebAuthenticationDetailsSource().buildDetails(request));    // this will provide some details like client Ip address , session ID associated with the request
             // To put this user to Spring security context holder
