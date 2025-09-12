@@ -57,8 +57,6 @@ public class AuthController {
         LoginResponseDto loginResponseDto = authService.refresh(refreshToken);
         return ResponseEntity.ok(loginResponseDto);
 
-
-
     }
 
 }
