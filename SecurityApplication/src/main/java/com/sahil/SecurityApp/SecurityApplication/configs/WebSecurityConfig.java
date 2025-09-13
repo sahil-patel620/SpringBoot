@@ -34,7 +34,7 @@ public class WebSecurityConfig {
 
         httpSecurity
                 .authorizeHttpRequests(auth-> auth
-                        .requestMatchers("/posts","/error","/auth/**").permitAll()
+                        .requestMatchers("/posts","/error","/auth/**", "/home.html").permitAll()
 //                        .requestMatchers("/posts/**").authenticated()
                         .anyRequest().authenticated())
                 .csrf(csrfConfig-> csrfConfig.disable())
