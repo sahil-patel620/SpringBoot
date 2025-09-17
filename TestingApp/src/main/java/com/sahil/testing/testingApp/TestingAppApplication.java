@@ -1,4 +1,4 @@
-package com.sahil.Week7.TestingApp;
+package com.sahil.testing.testingApp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

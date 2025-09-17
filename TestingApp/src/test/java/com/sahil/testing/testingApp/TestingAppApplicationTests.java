@@ -1,4 +1,4 @@
-package com.sahil.Week7.TestingApp;
+package com.sahil.testing.testingApp;
 
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.api.Assertions;
@@ -32,9 +32,9 @@ class TestingAppApplicationTests {
         log.info("Tearing down all ....");
     }
 
-	@Test
+    @Test
 //    @Disabled
-	void testNumberOne() {
+    void testNumberOne() {
         int a = 5;
         int b = 3;
         int result = addTwoNumber(a,b);
@@ -50,7 +50,7 @@ class TestingAppApplicationTests {
                 .endsWith("l")
                 .hasSize(3);
 
-	}
+    }
 
     int addTwoNumber(int a, int b){
         return a+b;
@@ -79,5 +79,6 @@ class TestingAppApplicationTests {
         }
     }
 }
+
 
 
