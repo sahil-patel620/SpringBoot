@@ -8,6 +8,8 @@ import org.testcontainers.utility.DockerImageName;
 @Configuration
 public class TestContainerConfiguration {
 
+//    Chatgpt solution
+
     @Bean
     PostgreSQLContainer<?> postgresContainer() {
         PostgreSQLContainer<?> container = new PostgreSQLContainer<>(DockerImageName.parse("postgres:17"))
@@ -26,5 +28,14 @@ public class TestContainerConfiguration {
 
         return container;
     }
+
+// My solution
+//
+//    @Bean
+////    @ServiceConnection
+//    PostgreSQLContainer<?> postgresContainer(){
+//        return new PostgreSQLContainer<>(DockerImageName.parse("postgres:latest"));
+//    }
+
 }
 
