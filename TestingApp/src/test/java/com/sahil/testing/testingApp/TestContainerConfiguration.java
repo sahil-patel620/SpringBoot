@@ -1,17 +1,30 @@
 package com.sahil.testing.testingApp;
 
-import org.springframework.boot.test.context.TestConfiguration;
-import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.utility.DockerImageName;
 
-@TestConfiguration
+@Configuration
 public class TestContainerConfiguration {
 
     @Bean
-    @ServiceConnection
-    PostgreSQLContainer<?> postgresContainer(){
-        return new PostgreSQLContainer<>(DockerImageName.parse("postgres:latest"));
+    PostgreSQLContainer<?> postgresContainer() {
+        PostgreSQLContainer<?> container = new PostgreSQLContainer<>(DockerImageName.parse("postgres:17"))
+                .withDatabaseName("testdb")
+                .withUsername("user")
+                .withPassword("password")
+                .withEnv("TZ", "Asia/Kolkata"); // set proper timezone
+
+        // Start container immediately so Spring Boot can use it
+        container.start();
+
+        // Override Spring datasource properties for tests
+        System.setProperty("spring.datasource.url", container.getJdbcUrl());
+        System.setProperty("spring.datasource.username", container.getUsername());
+        System.setProperty("spring.datasource.password", container.getPassword());
+
+        return container;
     }
 }
+
