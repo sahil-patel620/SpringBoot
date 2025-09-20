@@ -3,6 +3,7 @@ package com.sahil.testing.testingApp.services.impl;
 import com.sahil.testing.testingApp.TestContainerConfiguration;
 import com.sahil.testing.testingApp.dto.EmployeeDto;
 import com.sahil.testing.testingApp.entities.Employee;
+import com.sahil.testing.testingApp.exceptions.ResourceNotFoundException;
 import com.sahil.testing.testingApp.repositories.EmployeeRepository;
 import com.sahil.testing.testingApp.services.EmployeeService;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,6 +24,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -73,6 +75,20 @@ class EmployeeServiceImplTest {
     }
 
     @Test
+    void testGetEmployeeById_WhenEmployeeIsNotPresent_thenThrowException(){
+        // assign
+        when(employeeRepository.findById(anyLong())).thenReturn(Optional.empty());
+
+        // act and assert
+        assertThatThrownBy(()->employeeService.getEmployeeById(1L))
+                .isInstanceOf(ResourceNotFoundException.class)
+                .hasMessage("Employee not found with id: 1");
+
+        verify(employeeRepository).findById(1L);
+
+    }
+
+    @Test
     void testCreateNEweEmployee_WhenValidEmployee_ThenCreateNewEmployee(){
         //Assign
         when(employeeRepository.findByEmail(anyString())).thenReturn(List.of());
@@ -84,7 +100,7 @@ class EmployeeServiceImplTest {
         assertThat(employeeDto.getEmail()).isEqualTo(mockEmployeeDto.getEmail());
 
         ArgumentCaptor<Employee> EmployeeArgumentCaptor = ArgumentCaptor.forClass(Employee.class);
-        verify(employeeRepository).save(EmployeeArgumentCaptor.capture( ));
+        verify(employeeRepository).save(EmployeeArgumentCaptor.capture());
 
         Employee capturedEmployee = EmployeeArgumentCaptor.getValue();
         assertThat(capturedEmployee.getEmail()).isEqualTo(mockEmployeeDto.getEmail());
