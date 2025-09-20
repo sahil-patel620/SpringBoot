@@ -60,7 +60,7 @@ class EmployeeServiceImplTest {
 
         //Assign
         Long id = mockEmployee.getId();
-        when(employeeRepository.findById(id)).thenReturn(Optional.of(mockEmployee));
+        when(employeeRepository.findById(id)).thenReturn(Optional.of(mockEmployee)); //stubbing
 
         //Act
         EmployeeDto employeeDto = employeeService.getEmployeeById(1L);
@@ -84,7 +84,7 @@ class EmployeeServiceImplTest {
         assertThat(employeeDto.getEmail()).isEqualTo(mockEmployeeDto.getEmail());
 
         ArgumentCaptor<Employee> EmployeeArgumentCaptor = ArgumentCaptor.forClass(Employee.class);
-        verify(employeeRepository).save(EmployeeArgumentCaptor.capture());
+        verify(employeeRepository).save(EmployeeArgumentCaptor.capture( ));
 
         Employee capturedEmployee = EmployeeArgumentCaptor.getValue();
         assertThat(capturedEmployee.getEmail()).isEqualTo(mockEmployeeDto.getEmail());
