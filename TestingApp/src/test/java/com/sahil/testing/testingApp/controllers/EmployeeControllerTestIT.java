@@ -45,6 +45,7 @@ class EmployeeControllerTestIT {
                 .email(uniqueEmail)
                 .salary(200L)
                 .build();
+        employeeRepository.deleteAll();
     }
 
     @Test
@@ -70,8 +71,11 @@ class EmployeeControllerTestIT {
                 .uri("/employees/1")
                 .exchange()
                 .expectStatus().isNotFound();
-
     }
 
+    @Test
+    void testCreateNewEmployee_whenEmployeeAlreadyExists_thenThrowException(){
+        Employee savedEmployee = employeeRepository.save(testEmployee);
 
+    }
 }
