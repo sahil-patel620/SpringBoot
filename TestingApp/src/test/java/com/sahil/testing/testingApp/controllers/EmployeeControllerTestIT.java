@@ -70,7 +70,7 @@ class EmployeeControllerTestIT {
         webTestClient.get()
                 .uri("/employees/1")
                 .exchange()
-                .expectStatus().isNotFound();
+                .expectStatus().isNotFound( );
     }
 
     @Test
