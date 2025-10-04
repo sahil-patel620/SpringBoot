@@ -69,7 +69,6 @@ class EmployeeControllerTestIT {
     void testGetEmployeeById_Failure(){
         webTestClient.get()
                 .uri("/employees/1")
-
                 .exchange()
                 .expectStatus().isNotFound();
     }
