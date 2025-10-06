@@ -11,7 +11,7 @@ public class TestContainerConfiguration {
 //    Chatgpt solution
     @Bean
     PostgreSQLContainer<?> postgresContainer() {
-        PostgreSQLContainer<?> container = new PostgreSQLContainer<>(DockerImageName.parse("postgres:17"))
+        PostgreSQLContainer<?> container = new PostgreSQLContainer<>(DockerImageName.parse("postgres:latest"))
                 .withDatabaseName("testdb")
                 .withUsername("user")
                 .withPassword("password")
