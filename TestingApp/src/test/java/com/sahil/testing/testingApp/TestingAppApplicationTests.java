@@ -49,7 +49,6 @@ class TestingAppApplicationTests {
 //                .startsWith("App")
 //                .endsWith("l")
 //                .hasSize(3);
-
     }
 
     int addTwoNumber(int a, int b){
@@ -79,6 +78,3 @@ class TestingAppApplicationTests {
         }
     }
 }
-
-
-
