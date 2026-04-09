@@ -7,9 +7,14 @@ spring:
       chat:
         options:
           model: qwen3:4b
-    openai:
-      api-key:
-      chat:
-        options:
-          model: gpt-4o-mini
-          temperature: 0.9
+#    openai:
+#      api-key:
+#      chat:
+#        options:
+#          model: gpt-4o-mini
+#          temperature: 0.9
+
+logging:
+  level:
+    org.springframework.ai:
+      chat.client: DEBUG

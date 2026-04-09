@@ -1,0 +1,108 @@
+2025-08-28T17:05:50.020+05:30  INFO 20288 --- [week4CurrencyConverter] [main] .s.c.w.Week4CurrencyConverterApplication : Starting Week4CurrencyConverterApplication using Java 24.0.1 with PID 20288 (D:\Programs\SpringBoot\HomeWork\week4CurrencyConverter\target\classes started by Sahil Patel in D:\Programs\SpringBoot\HomeWork\week4CurrencyConverter)
+2025-08-28T17:05:50.026+05:30  INFO 20288 --- [week4CurrencyConverter] [main] .s.c.w.Week4CurrencyConverterApplication : No active profile set, falling back to 1 default profile: "default"
+2025-08-28T17:05:55.555+05:30  INFO 20288 --- [week4CurrencyConverter] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-28T17:05:55.582+05:30  INFO 20288 --- [week4CurrencyConverter] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-28T17:05:55.583+05:30  INFO 20288 --- [week4CurrencyConverter] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-08-28T17:05:55.699+05:30  INFO 20288 --- [week4CurrencyConverter] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-28T17:05:55.700+05:30  INFO 20288 --- [week4CurrencyConverter] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5490 ms
+2025-08-28T17:05:58.412+05:30  INFO 20288 --- [week4CurrencyConverter] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-08-28T17:05:58.516+05:30  INFO 20288 --- [week4CurrencyConverter] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-28T17:05:58.544+05:30  INFO 20288 --- [week4CurrencyConverter] [main] .s.c.w.Week4CurrencyConverterApplication : Started Week4CurrencyConverterApplication in 9.833 seconds (process running for 11.148)
+2025-08-28T17:06:04.626+05:30  INFO 20288 --- [week4CurrencyConverter] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-28T17:06:04.626+05:30  INFO 20288 --- [week4CurrencyConverter] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-28T17:06:04.628+05:30  INFO 20288 --- [week4CurrencyConverter] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-28T17:06:04.698+05:30 ERROR 20288 --- [week4CurrencyConverter] [http-nio-8080-exec-1] c.s.c.w.clients.Impl.CurrencyClientImpl  : Trying to get rate of the currency
+2025-08-28T17:06:11.675+05:30 ERROR 20288 --- [week4CurrencyConverter] [http-nio-8080-exec-2] c.s.c.w.clients.Impl.CurrencyClientImpl  : Trying to get rate of the currency
+2025-08-28T17:06:12.229+05:30 ERROR 20288 --- [week4CurrencyConverter] [http-nio-8080-exec-2] c.s.c.w.clients.Impl.CurrencyClientImpl  : {"message":"Validation error","errors":{"currencies":["The selected currencies is invalid."]},"info":"For more information, see documentation: https:\/\/freecurrencyapi.com\/docs\/status-codes#_422"}
+2025-08-28T17:06:12.231+05:30 ERROR 20288 --- [week4CurrencyConverter] [http-nio-8080-exec-2] c.s.c.w.clients.Impl.CurrencyClientImpl  : Exception occurred in getConversionRate
+
+com.sahil.currencyConvertor.week4CurrencyConverter.exceptions.ResourceNotFoundException: Could not get the rate of currency
+	at com.sahil.currencyConvertor.week4CurrencyConverter.clients.Impl.CurrencyClientImpl.lambda$getConversionRate$1(CurrencyClientImpl.java:38) ~[classes/:na]
+	at org.springframework.web.client.StatusHandler.handle(StatusHandler.java:146) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.client.DefaultRestClient$DefaultResponseSpec.applyStatusHandlers(DefaultRestClient.java:838) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.client.DefaultRestClient$DefaultResponseSpec.lambda$readBody$4(DefaultRestClient.java:827) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.client.DefaultRestClient.readWithMessageConverters(DefaultRestClient.java:216) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.client.DefaultRestClient$DefaultResponseSpec.readBody(DefaultRestClient.java:826) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.client.DefaultRestClient$DefaultResponseSpec.lambda$body$0(DefaultRestClient.java:757) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchangeInternal(DefaultRestClient.java:586) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchange(DefaultRestClient.java:540) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.client.RestClient$RequestHeadersSpec.exchange(RestClient.java:680) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.client.DefaultRestClient$DefaultResponseSpec.executeAndExtract(DefaultRestClient.java:821) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.client.DefaultRestClient$DefaultResponseSpec.body(DefaultRestClient.java:757) ~[spring-web-6.2.10.jar:6.2.10]
+	at com.sahil.currencyConvertor.week4CurrencyConverter.clients.Impl.CurrencyClientImpl.getConversionRate(CurrencyClientImpl.java:40) ~[classes/:na]
+	at com.sahil.currencyConvertor.week4CurrencyConverter.controllers.CurrencyController.convertCurrency(CurrencyController.java:23) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.44.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.44.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:110) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at java.base/java.lang.Thread.run(Thread.java:1447) ~[na:na]
+
+2025-08-28T17:06:22.054+05:30 ERROR 20288 --- [week4CurrencyConverter] [http-nio-8080-exec-3] c.s.c.w.clients.Impl.CurrencyClientImpl  : Trying to get rate of the currency
+2025-08-28T17:07:41.213+05:30  INFO 20288 --- [week4CurrencyConverter] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-28T17:07:41.236+05:30  INFO 20288 --- [week4CurrencyConverter] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-28T17:07:49.302+05:30  INFO 7936 --- [week4CurrencyConverter] [main] .s.c.w.Week4CurrencyConverterApplication : Starting Week4CurrencyConverterApplication using Java 24.0.1 with PID 7936 (D:\Programs\SpringBoot\HomeWork\week4CurrencyConverter\target\classes started by Sahil Patel in D:\Programs\SpringBoot\HomeWork\week4CurrencyConverter)
+2025-08-28T17:07:49.306+05:30  INFO 7936 --- [week4CurrencyConverter] [main] .s.c.w.Week4CurrencyConverterApplication : No active profile set, falling back to 1 default profile: "default"
+2025-08-28T17:07:52.950+05:30  INFO 7936 --- [week4CurrencyConverter] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-28T17:07:52.974+05:30  INFO 7936 --- [week4CurrencyConverter] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-28T17:07:52.975+05:30  INFO 7936 --- [week4CurrencyConverter] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-08-28T17:07:53.110+05:30  INFO 7936 --- [week4CurrencyConverter] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-28T17:07:53.112+05:30  INFO 7936 --- [week4CurrencyConverter] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3665 ms
+2025-08-28T17:07:55.478+05:30  INFO 7936 --- [week4CurrencyConverter] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-08-28T17:07:55.581+05:30  INFO 7936 --- [week4CurrencyConverter] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-28T17:07:55.608+05:30  INFO 7936 --- [week4CurrencyConverter] [main] .s.c.w.Week4CurrencyConverterApplication : Started Week4CurrencyConverterApplication in 7.658 seconds (process running for 8.698)
+2025-08-28T17:08:05.260+05:30  INFO 7936 --- [week4CurrencyConverter] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-28T17:08:05.261+05:30  INFO 7936 --- [week4CurrencyConverter] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-28T17:08:05.263+05:30  INFO 7936 --- [week4CurrencyConverter] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-08-28T17:08:05.337+05:30 ERROR 7936 --- [week4CurrencyConverter] [http-nio-8080-exec-1] c.s.c.w.clients.Impl.CurrencyClientImpl  : Trying to get rate of the currency
+2025-08-28T17:08:06.819+05:30  INFO 7936 --- [week4CurrencyConverter] [http-nio-8080-exec-1] c.s.c.w.clients.Impl.CurrencyClientImpl  : Successfully returned rate of currency from getConversionRate
+2025-08-28T17:08:09.736+05:30 ERROR 7936 --- [week4CurrencyConverter] [http-nio-8080-exec-2] c.s.c.w.clients.Impl.CurrencyClientImpl  : Trying to get rate of the currency
+2025-08-28T17:08:10.293+05:30  INFO 7936 --- [week4CurrencyConverter] [http-nio-8080-exec-2] c.s.c.w.clients.Impl.CurrencyClientImpl  : Successfully returned rate of currency from getConversionRate
+2025-08-28T17:13:27.050+05:30  INFO 7936 --- [week4CurrencyConverter] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-28T17:13:27.066+05:30  INFO 7936 --- [week4CurrencyConverter] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
