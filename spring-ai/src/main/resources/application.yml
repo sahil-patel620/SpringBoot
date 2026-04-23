@@ -6,13 +6,26 @@ spring:
       base-url: http://localhost:11434
       chat:
         options:
-          model: qwen3:4b
+          model: qwen3:0.6b
+      embedding:
+        options:
+          model: nomic-embed-text:latest
+    vectorstore:
+      pgvector:
+        initialize-schema: true
+
 #    openai:
 #      api-key:
 #      chat:
 #        options:
 #          model: gpt-4o-mini
 #          temperature: 0.9
+
+  datasource:
+    url: jdbc:postgresql://localhost:5434/my-test-vector-db
+    username: my-user
+    password: password
+    driver-class-name: org.postgresql.Driver
 
 logging:
   level:

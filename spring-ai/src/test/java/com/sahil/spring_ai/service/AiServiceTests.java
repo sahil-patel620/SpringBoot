@@ -15,4 +15,26 @@ public class AiServiceTests {
         var joke = aiService.getJoke("Programmers");
         System.out.println(joke);
     }
+
+    @Test
+    public void testEmbedding(){
+        var embed = aiService.getEmbedding("This is a huge text");
+        System.out.println(embed.length);
+        for (float e: embed){
+            System.out.print(e+"");
+        }
+    }
+
+    @Test
+    public void testStoreData(){
+        aiService.ingestDataToVectorStore();
+    }
+
+    @Test
+    public void testSimilaritySearch(){
+      var res = aiService.similaritySearch("A team of people travel through a wormhole in space");
+      for(var doc: res){
+      System.out.println(doc);
+      }
+    }
 }
